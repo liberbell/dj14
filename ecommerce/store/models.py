@@ -16,3 +16,6 @@ class Product(models.Model):
     
     title = models.CharField(max_length=255)
     brand = models.CharField(max_length=255, default="un-brand")
+    description = models.TextField(max_length=1024, blank=True)
+    slug = models.SlugField(max_length=255, unique=True)
+    
