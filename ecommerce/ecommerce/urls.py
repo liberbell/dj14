@@ -24,4 +24,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 ]
 
-urlpatterns += static(settings.MEDIA_URL)
+urlpatterns += static(settings.MEDIA_URL, ducument_root=settings.MEDIA_ROOT)
