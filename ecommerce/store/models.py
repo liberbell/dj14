@@ -20,3 +20,9 @@ class Product(models.Model):
     slug = models.SlugField(max_length=255, unique=True)
     price = models.DecimalField(max_digits=4, decimal_places=2)
     # image = models.ImageField(upload_to="images/", height_field=None, width_field=None, max_length=None)
+    
+    class Meta:
+            verbose_name_plural = "categories"
+            
+    def __str__(self):
+        return self.name
