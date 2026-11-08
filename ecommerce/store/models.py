@@ -12,7 +12,7 @@ class Category(models.Model):
     def __str__(self):
         return self.name
     
-class Products(models.Model):
+class Product(models.Model):
     
     title = models.CharField(max_length=255)
     brand = models.CharField(max_length=255, default="un-brand")
