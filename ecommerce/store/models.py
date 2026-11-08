@@ -12,7 +12,7 @@ class Category(models.Model):
     def __str__(self):
         return self.name
     
-class Product(models.Model):
+class Products(models.Model):
     
     title = models.CharField(max_length=255)
     brand = models.CharField(max_length=255, default="un-brand")
@@ -22,7 +22,7 @@ class Product(models.Model):
     # image = models.ImageField(upload_to="images/", height_field=None, width_field=None, max_length=None)
     
     class Meta:
-            verbose_name_plural = "categories"
+            verbose_name_plural = "products"
             
     def __str__(self):
-        return self.name
+        return self.title
