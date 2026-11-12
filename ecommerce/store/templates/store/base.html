@@ -36,7 +36,9 @@
 
                         
                         {% for category in all_categories %}
-                            <a class="dropdown-item" href="">{{ category.name | capfirst }}</a>
+                            <li>
+                                <a class="dropdown-item" href="">{{ category.name | capfirst }}</a>
+                            </li>
                         {% endfor %}
                             
                     </ul>
