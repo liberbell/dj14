@@ -7,7 +7,7 @@ def store(request):
     all_Products = Product.objects.all()
     context = {"my_products": all_Products}
     
-    return render(request, "store/store.html", context)
+    return render(request, "store/store.html", context=context)
 
 def categories(request):
     all_categories = Category.objects.all()
