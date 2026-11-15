@@ -30,5 +30,5 @@ class Product(models.Model):
         return self.title
     
     def get_absolute_url(self):
-        return reverse("model_detail", kwargs={"pk": self.pk})
+        return reverse("product-info", wargs=[self.slug])
     
