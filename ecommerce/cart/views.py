@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .cart import Cart
 from store.models import Product
 from django.shortcuts import get_object_or_404
+from django.http import JsonResponse
 
 # Create your views here.
 
@@ -19,6 +20,7 @@ def cart_add(request):
         product = get_object_or_404(Product, id=product_id)
         
         cart.add(product=product, product_qty=product_quantity)
+        response = JsonResponse({"The product is called"})
 
 def cart_delete(request):
     
