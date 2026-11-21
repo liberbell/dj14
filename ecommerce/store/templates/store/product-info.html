@@ -66,6 +66,7 @@
                 data: {
                     product_id: $('#add-button').val(),
                     product_quantity: $('#select option:selected').text(),
+                    csrfmiddlewaretoken: "{{ csrf_token }}",
                 },
             });
         })
