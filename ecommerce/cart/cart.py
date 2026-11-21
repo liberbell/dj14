@@ -18,4 +18,7 @@ def add(self, product, product_qty):
         self.cart[product_id]["qty"] = product_qty
         
     else:
-        self.cart[product_id] = {"price"}
+        self.cart[product_id] = {"price": str(product.price), "qty": product_qty}
+    
+    self.session.modified = True
+        
