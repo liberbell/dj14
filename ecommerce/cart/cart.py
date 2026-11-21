@@ -10,3 +10,12 @@ class Cart():
             cart = self.session["session_key"] = {'fav_number': 13}
         
         self.cart = cart
+
+def add(self, product, product_qty):
+    
+    product_id = str(product.id)
+    if product_id in self.cart:
+        self.cart[product_id]["qty"] = product_qty
+        
+    else:
+        self.cart[product_id] = {"price"}
