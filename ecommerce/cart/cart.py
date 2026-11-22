@@ -23,3 +23,6 @@ class Cart():
         
         self.session.modified = True
         
+        
+    def __len__(self):
+        return sum(item["qty"] for item in self.cart)
