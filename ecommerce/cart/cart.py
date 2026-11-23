@@ -1,4 +1,5 @@
-
+from decimal import Decimal
+from store.models import Product
 
 class Cart():
     
@@ -26,3 +27,7 @@ class Cart():
         
     def __len__(self):
         return sum(item["qty"] for item in self.cart.values())
+    
+    def __iter__(self):
+        all_product_ids = self.cart.keys()
+        products = 
