@@ -63,6 +63,7 @@
                         &nbsp;
 
                         <div id="cart-qty" class="d-inline-flex">
+                            {{ cart.cart }}
                             {% with qty_amount=cart|length %}
                                 
                                 {% if qty_amount > 0 %}
