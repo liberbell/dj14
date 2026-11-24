@@ -78,5 +78,28 @@
         <br>
         <br>
     </main>
+    <script>
+        $(document).on('click', '.delte-button', function(e){
+            e.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: '{% url "cart-delete" %}',
+                data: {
+                    product_id: $(this).data("index"),
+                    product_quantity: $('#select option:selected').text(),
+                    csrfmiddlewaretoken: "{{ csrf_token }}",
+                    action: "post",
+                },
+                success: function(json){
+                    console.log(json)
+                    document.getElementById("cart-qty").textContent = json.qty
+                },
+                error: function(xhr, errmsg, err){
+
+                },
+
+            });
+        })
+    </script>
 {% endblock content %}
     
