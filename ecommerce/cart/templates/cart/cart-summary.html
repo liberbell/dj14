@@ -40,7 +40,7 @@
                                     <div class="col-12">
                                         <label for="select">Qty</label>
                                         &nbsp; 
-                                        <select id="">
+                                        <select id="select{{ product.id }}">
                                             <option selected>
                                                 {{item.qty}}
                                             </option>
@@ -52,7 +52,7 @@
                                         </select>
                                         <br> <br>
 
-                                        <button type="button" id="update-button" class="btn btn-primary btn-sm update-button">Update</button>
+                                        <button type="button" data-index="{{ product.id }}" class="btn btn-primary btn-sm update-button">Update</button>
                                         &nbsp;
 
                                         <button type="button" data-index="{{ product.id }}" class="btn btn-danger btn-sm delete-button">Delete</button>
@@ -79,11 +79,36 @@
         <br>
     </main>
     <script>
+        // delete button
         $(document).on('click', '.delete-button', function(e){
             e.preventDefault();
             $.ajax({
                 type: 'POST',
                 url: '{% url "cart-delete" %}',
+                data: {
+                    product_id: $(this).data("index"),
+                    csrfmiddlewaretoken: "{{ csrf_token }}",
+                    action: "post",
+                },
+                success: function(json){
+                    // console.log(json)
+                    location.reload();
+                    document.getElementById("cart-qty").textContent = json.qty
+                    document.getElementById("total").textContent = json.total
+                },
+                error: function(xhr, errmsg, err){
+
+                },
+
+            });
+        })
+
+        // update button
+        $(document).on('click', '.update-button', function(e){
+            e.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: '{% url "cart-update" %}',
                 data: {
                     product_id: $(this).data("index"),
                     csrfmiddlewaretoken: "{{ csrf_token }}",
