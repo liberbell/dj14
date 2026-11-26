@@ -41,7 +41,6 @@ def cart_delete(request):
             cart_total = cart.get_total()
 
             response = JsonResponse({"qty": cart_quantity, "total": cart_total})
-            
             return response
 
 def cart_update(request):
@@ -55,3 +54,6 @@ def cart_update(request):
         cart.update(product=product_id, qty=product_quantity)
         cart_quantity = cart.__len__()
         cart_total = cart.get_total()
+        
+        response = JsonResponse({"qty": cart_quantity, "total": cart_total})
+        return response
