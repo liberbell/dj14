@@ -78,6 +78,7 @@
         <br>
         <br>
     </main>
+    
     <script>
         // delete button
         $(document).on('click', '.delete-button', function(e){
@@ -92,7 +93,7 @@
                 },
                 success: function(json){
                     // console.log(json)
-                    location.reload();
+                    location.reload(true);
                     document.getElementById("cart-qty").textContent = json.qty
                     document.getElementById("total").textContent = json.total
                 },
@@ -119,7 +120,7 @@
                 },
                 success: function(json){
                     // console.log(json)
-                    location.reload();
+                    location.reload(true);
                     document.getElementById("cart-qty").textContent = json.qty
                     document.getElementById("total").textContent = json.total
                 },
